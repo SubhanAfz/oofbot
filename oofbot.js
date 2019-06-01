@@ -1,7 +1,7 @@
 
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const prefix = botlogin.prefix;
+
 
 client.on('ready', () => {
     console.log('logged on');
