@@ -63,7 +63,11 @@ client.on('message', message => {
         }
       
     }
-    
+        if (message.content === '!cmds')
+    {
+        message.channel.send("!ping, !randomnumber, !flip, !join, !leave")
+
+    }
 });
 
 
