@@ -53,7 +53,7 @@ client.on('message', message => {
                 message.reply("Your not in a VC");
             }
     }
-    if (message.content === prefix + 'leave')
+    if (message.content === '!leave')
     {
         
         if (message.guild.voiceConnection)
