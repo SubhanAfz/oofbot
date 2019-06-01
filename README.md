@@ -1,8 +1,8 @@
 # oofbot
 discord bot
 #commands:
-!cmds - pulls out all of the commands
-!join - makes bot join VC
-!leave - makes bot leave VC
-!randomnumber - does a random number 
-!flip - flips a coin
+1.!cmds - pulls out all of the commands
+2.!join - makes bot join VC
+3.!leave - makes bot leave VC
+4.!randomnumber - does a random number 
+5.!flip - flips a coin
