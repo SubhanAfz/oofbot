@@ -1,19 +1,7 @@
 
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const ytdl = require("ytdl-core")
-var servers = [];
 
-function play (connection , message){
-    var server = servers[message.guild.id]
-    server.dispatcher = connection.playstream(ytdl(server.queue[0] , {filter : "audioonly"}));
-    server.queue.shift();
-    server.dispatcher.on("end", function(){
-        if (server.queue[0]) play (connection, message);
-        else connection.disconnect();
-    });
-
-}
 
 
 client.on('ready', () => {
@@ -81,35 +69,7 @@ client.on('message', message => {
         message.channel.send("!ping, !randomnumber, !flip, !join, !leave")
 
     }
-     if (message.content === '!play')
-    {
-        if (!args[1])
-        {
-            message.reply("Please provide a link!");
-        }
-        if (!message.member.voiceChannel){
-            message.reply("You must be in a VC!");
-        }
-        if (!servers[message.guild.id])servers[message.guild.id]={
-            queue:[]
-        };
-        server.queue.push(args[1]);
-        if(!message.guild.voiceConnection) message.member.voiceChannel.join().then(function(connection){
-            play(connection , message);
-        });
-        var server = servers[message.guild.id];
-    }
    
-    if (message.content === "!skip")
-    {
-        var server = servers[message.guild.id];
-        if (server.dispatcher) server.dispatcher.end();
-    }
-    if (message.content === '!stop')
-    {
-        var server = servers[message.guild.id];
-        if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
-    }
 });
 
 
